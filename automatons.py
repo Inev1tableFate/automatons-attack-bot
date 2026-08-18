@@ -57,7 +57,7 @@ def type_straight(input_word):
                 time.sleep(random.uniform(0.01 , 0.03))
                 
 
-option_num = input("Введите 1 для режима instant (мнгновенный ввод);\n  Введите 2 для режима split (ввод по 50% слова);\n Введите 3 для режима straight (ввод по 1 букве с случайной задержкой).")
+option_num = input("Введите 1 для режима instant (мнгновенный ввод);\nВведите 2 для режима split (ввод по 50% слова);\nВведите 3 для режима straight (ввод по 1 букве с случайной задержкой).\n")
                   
             
 if option_num == "1":
@@ -82,7 +82,11 @@ time.sleep(2)
 while not keyboard.is_pressed('f10'):
     
     input_word = get_dota_word()
-    chosen_function(input_word)
+    
+    
+    if input_word is not None and input_word.strip() != " ":
+        chosen_function(input_word)
+
     
     if time.time() - start_time >= 5.0:
         history.clear()
