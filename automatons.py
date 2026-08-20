@@ -2,7 +2,6 @@ from PIL import ImageGrab, ImageEnhance, ImageOps, Image
 import time
 import random
 import pytesseract
-import pydirectinput
 import keyboard
 
 
@@ -36,7 +35,7 @@ def type_instant(input_word):
     
     if input_word not in history:
         history.add(input_word)
-        pydirectinput.write(input_word.lower())        
+        keyboard.write(input_word.lower())        
         
         
 def type_split(input_word):
@@ -45,15 +44,15 @@ def type_split(input_word):
         mid = len(input_word) // 2       
         part1 = input_word[:mid].lower()
         part2 = input_word[mid:].lower() 
-        pydirectinput.write(part1)        
-        pydirectinput.write(part2)
+        keyboard.write(part1)        
+        keyboard.write(part2)
 
         
 def type_straight(input_word):    
     
     if input_word not in history:
             for letter in input_word:
-                pydirectinput.press(letter.lower())
+                keyboard.write(letter.lower())
                 time.sleep(random.uniform(0.01 , 0.03))
                 
 
